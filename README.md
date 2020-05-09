@@ -40,7 +40,7 @@ mkdir vagrant && cd vagrant
 git clone https://github.com/borahuho/DevOps13
 cd DevOps13
 vagrant up
-vagrant ssh ansible_host
+vagrant ssh ansible
 ```
 ## Mission
 
@@ -50,7 +50,7 @@ Read your mission in ~/vagrant/mission (on Ansible server)
 Vagrant VM will be set up with 2 network adapters
 ```
 Nat : DHCP
-Localhost (ansible_host): 192.168.10.100
+Localhost (ansible): 192.168.10.100
 
 Nat : DHCP
 Localhost (server1): 192.168.10.105
@@ -73,7 +73,7 @@ vagrant destroy
 ```
 ssh in to the VM
 ```
-vagrant ssh ansible_host
+vagrant ssh ansible
 vagrant ssh server1
 vagrant ssh server2
 ```

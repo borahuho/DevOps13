@@ -17,8 +17,8 @@ Vagrant.configure('2') do |config|
         vb.cpus = 1
     end
 
-    config.vm.define "ansible_host", primary: true do |machine1|
-        machine1.vm.host_name = "ansible_host.local"
+    config.vm.define "ansible", primary: true do |machine1|
+        machine1.vm.host_name = "ansible.local"
         machine1.vm.network "private_network", ip: "192.168.10.100"
         machine1.vm.provision "shell", inline: $useraddscript
         machine1.vm.provision :shell, path: "bootstrap.sh"
