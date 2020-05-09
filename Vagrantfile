@@ -22,6 +22,7 @@ Vagrant.configure('2') do |config|
         machine1.vm.network "private_network", ip: "192.168.10.100"
         machine1.vm.provision "shell", inline: $useraddscript
         machine1.vm.provision :shell, path: "bootstrap.sh"
+		machine1.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
         machine1.vm.provider "virtualbox" do |vb|
             vb.cpus = 1
         end
@@ -32,6 +33,7 @@ Vagrant.configure('2') do |config|
         machine2.vm.host_name = "server1.local"
         machine2.vm.network "private_network", ip: "192.168.10.105"
         machine2.vm.provision "shell", inline: $useraddscript
+		machine2.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
         machine2.vm.provider "virtualbox" do |vb|
             vb.cpus = 1
         end
@@ -41,6 +43,7 @@ Vagrant.configure('2') do |config|
         machine3.vm.host_name = "server2.local"
         machine3.vm.network "private_network", ip: "192.168.10.110"
         machine3.vm.provision "shell", inline: $useraddscript
+		machine3.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
         machine3.vm.provider "virtualbox" do |vb|
             vb.cpus = 1
         end
